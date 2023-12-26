@@ -29,15 +29,15 @@ if (userChoice == `signup`) {
 
     let email = prompt(`your unique Email`)
     let emailcopy = email.trim().toLocaleLowerCase();
-    while(emailcopy.includes(" ")) {
-        email = prompt(`enter your email without using spaces in the middle`)
-        break;
-    }
+    while(emailcopy.split("") === email.includes(" ")) {
+        email = prompt(`enter your email without using spaces in the middle`);
+        
+    };
     
-    
-    while(email != email.includes("@")) {
+    let emailcheck = email.split("")
+    while(emailcheck != email.includes("@")) {
             email = prompt(`enter your email  using only one "@"`)
-            break;
+            
     }
     console.log(email);
 }
