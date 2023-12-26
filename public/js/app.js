@@ -7,21 +7,37 @@ let bankDataBase = [];
 let userChoice = prompt(`type "login" to enter to your account || "signup" to creat your account || "change password" to set a new password`);
 
 if (userChoice == `signup`) {
-    //* fullname check
-    let nom = prompt(`Your full name`)
+    // //* fullname check
+    // let nom = prompt(`Your full name`);
+    // while(nom.split(" ").join("").length < 5 ) {
+        
+    //     nom = prompt(`your name is not valide / should containe more than 5 characters `)
+    // };
 
-    while(nom.length < 5) {
-        nom = prompt(`your name is not valide / should containe more than 5 characters`)
-    }
-    let tableau = nom.split(" ");
-    for (var i = 0; i < tableau.length; i++) {
-        tableau[i] = tableau[i].charAt(0).toUpperCase() + tableau[i].slice(1).toLocaleLowerCase();
-    }
-    let nom2 = tableau.join(" ");
-    console.log(nom2);
+    // while(nom.includes("*"||"/"||`!` ||"@"||"#"||"$"||"%"||"^"||"&"||"*"||"()"||"_")) {
+    //     nom = prompt(`your name is not valide / should not containe numbers or special characters such as : @ / * ,`)
+    // };
 
-    //* email chack
+    // let tableau = nom.split(" ");
+    // for (let i = 0; i < tableau.length; i++) {
+    //     tableau[i] = tableau[i].charAt(0).toUpperCase() + tableau[i].slice(1).toLocaleLowerCase();
+    // }
+    // let nom2 = tableau.join(" ");
+    // console.log(nom2);
+
+    //* email check
+
     let email = prompt(`your unique Email`)
-    email = email.trim().toLocaleLowerCase();
+    let emailcopy = email.trim().toLocaleLowerCase();
+    while(emailcopy.includes(" ")) {
+        email = prompt(`enter your email without using spaces in the middle`)
+        break;
+    }
+    
+    
+    while(email != email.includes("@")) {
+            email = prompt(`enter your email  using only one "@"`)
+            break;
+    }
     console.log(email);
 }
