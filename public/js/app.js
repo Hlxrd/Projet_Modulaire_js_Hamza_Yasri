@@ -6,7 +6,7 @@ let bankDataBase = [];
 
 // let userChoice = prompt(`type "login" to enter to your account || "signup" to creat your account || "change password" to set a new password`);
 
-const userSignUp =()=> {
+const userSigningUp =()=> {
     // //* fullname check
         let nom = prompt(`Your full name`);
         while(nom.split(" ").join("").length < 5 ) {
@@ -65,5 +65,19 @@ if (confirmPassword != password) {
     newUser.money = 2000;
     bankDataBase.push(newUser)
 }
-userSignUp()
-console.log(bankDataBase);
+
+const userChoice =()=>{
+    //* user choice check
+    let userChoice = prompt(`type "login" to enter to your account || "signup" to creat your account || "change password" to set a new password`);
+
+    switch (userChoice) {
+        case `signup`:
+            userSigningUp()
+            break;
+    
+        default:
+            break;
+    }
+}
+// userSignUp()
+// console.log(bankDataBase);
