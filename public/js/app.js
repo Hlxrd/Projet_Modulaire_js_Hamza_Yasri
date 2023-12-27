@@ -36,7 +36,7 @@ const userSigningUp =()=> {
     }else if (email.indexOf("@") === -1) {
         email = prompt(`use the character "@" to complete you email`);
     }
-    if (bankDataBase.some(user => user.email === email)) {
+    if (bankDataBase.some(user => newUser.email === email)) {
         email = (`email already exists please enter a valide email`);
     }
 
@@ -47,7 +47,7 @@ const userSigningUp =()=> {
         email = prompt(`please enter a valide age`);
     }
     
-    //* password check
+    // //* password check
     
     let password = prompt(`Choose a password`);
     password = password.trim();
@@ -57,15 +57,22 @@ const userSigningUp =()=> {
 
     //* password confirmation
     let confirmPassword = prompt(`please confirme your password`);
-if (confirmPassword != password) {
-    alert(`You have been blocked`);
-    userSignUp();
-}
-    let newUser = {nom , email , age , password};
+if (password == confirmPassword) {
+    let newUser = {nom , email , age ,password};
     newUser.money = 2000;
     bankDataBase.push(newUser)
+    console.log(bankDataBase);
+}else if (password != confirmPassword) {
+    
+    alert(`You have been blocked`);
+    userSigningUp();
+}
 }
 
+
+// const userLogingIn = () =>{
+
+// }
 const userChoice =()=>{
     //* user choice check
     let userChoice = prompt(`type "login" to enter to your account || "signup" to creat your account || "change password" to set a new password`);
@@ -79,5 +86,6 @@ const userChoice =()=>{
             break;
     }
 }
+userChoice()
 // userSignUp()
 // console.log(bankDataBase);
