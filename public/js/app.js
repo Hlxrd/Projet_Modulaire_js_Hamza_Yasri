@@ -1,6 +1,6 @@
 //* Part 1 User first choice
 
-let bankDataBase = [];
+let bankDataBase = [{nom : "hamza" , email :"hamzaraja@" ,age :24 , password: 1516171819}];
 
 
 
@@ -36,7 +36,7 @@ const userSigningUp =()=> {
     }else if (email.indexOf("@") === -1) {
         email = prompt(`use the character "@" to complete you email`);
     }
-    if (bankDataBase.some(user => newUser.email === email)) {
+    if (bankDataBase.some(newUser => newUser.email === email)) {
         email = (`email already exists please enter a valide email`);
     }
 
@@ -51,7 +51,7 @@ const userSigningUp =()=> {
     
     let password = prompt(`Choose a password`);
     password = password.trim();
-    if (password.includes(` `) || password.length < 7 || password.includes("*"||"/"||`!` ||"@"||"#"||"$"||"%"||"^"||"&"||"*"||"()"||"_")) {
+    if (password.includes(` `) || password.length < 7 || password.includes("*"||"/"||`!` ||"@"||"#"||"$"||"%"||"^"||"&"||"*"||"()"||"_" )== false) {
         password = prompt(`unvalide password . please avoide using spaces , using specific characters or entering less than 7 characters`);
     };
 
@@ -60,8 +60,9 @@ const userSigningUp =()=> {
 if (password == confirmPassword) {
     let newUser = {nom , email , age ,password};
     newUser.money = 2000;
-    bankDataBase.push(newUser)
+    bankDataBase.push(newUser);
     console.log(bankDataBase);
+    
 }else if (password != confirmPassword) {
     
     alert(`You have been blocked`);
@@ -69,10 +70,16 @@ if (password == confirmPassword) {
 }
 }
 
+let userlogin = []
 
-// const userLogingIn = () =>{
+const userLogingIn = () =>{
+let email= prompt(`enter your `)
+if (email != bankDataBase[0].nom) {
+    userlogin.push(newUser)
+    console.log(userlogin);
+}
+}
 
-// }
 const userChoice =()=>{
     //* user choice check
     let userChoice = prompt(`type "login" to enter to your account || "signup" to creat your account || "change password" to set a new password`);
@@ -82,10 +89,9 @@ const userChoice =()=>{
             userSigningUp()
             break;
     
-        default:
+        case `login`:
+            userLogingIn()
             break;
     }
 }
 userChoice()
-// userSignUp()
-// console.log(bankDataBase);
